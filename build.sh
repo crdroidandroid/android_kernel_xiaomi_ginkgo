@@ -11,7 +11,7 @@
 # Use this script on root of kernel directory
 
 SECONDS=0 # builtin bash timer
-LOCAL_DIR=/home/ryuzenn/
+LOCAL_DIR=/opt/munir/
 ZIPNAME="RyzenKernel-AOSP-Dynamic-Ginkgo-$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M").zip"
 ZIPNAME_KSU="RyzenKernel-AOSP-Dynamic-Ginkgo-KSU-$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M").zip"
 TC_DIR="${LOCAL_DIR}toolchain"
@@ -66,7 +66,7 @@ echo -e "\nKSU Support, let's Make it On\n"
 curl -kLSs "https://raw.githubusercontent.com/kutemeikito/KernelSU-Next/next/kernel/setup.sh" | bash -s next
 git apply KernelSU-hook.patch
 sed -i 's/CONFIG_KSU=n/CONFIG_KSU=y/g' arch/arm64/configs/vendor/ginkgo-perf_defconfig
-sed -i 's/CONFIG_LOCALVERSION="-RyzenKernel-Dynamic"/CONFIG_LOCALVERSION="-RyzenKernel-Dynamic-KSU"/g' arch/arm64/configs/vendor/ginkgo-perf_defconfig
+sed -i 's/CONFIG_LOCALVERSION="-RyzenKernel-Dynamic/erofs"/CONFIG_LOCALVERSION="-RyzenKernel-Dynamic/erofs-KSU"/g' arch/arm64/configs/vendor/ginkgo-perf_defconfig
 else
 echo -e "\nKSU not Support, let's Skip\n"
 fi
