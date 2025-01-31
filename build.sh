@@ -12,8 +12,8 @@
 
 SECONDS=0 # builtin bash timer
 LOCAL_DIR=/opt/munir/
-ZIPNAME="RyzenKernel-AOSP-Dynamic-Ginkgo-$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M").zip"
-ZIPNAME_KSU="RyzenKernel-AOSP-Dynamic-Ginkgo-KSU-$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M").zip"
+ZIPNAME="EklerKernel-ginkgo-$(TZ=Asia/Baku date +"%Y%m%d-%H%M").zip"
+ZIPNAME_KSU="EklerKernel-ginkgo-KSU-$(TZ=Asia/Baku date +"%Y%m%d-%H%M").zip"
 TC_DIR="${LOCAL_DIR}toolchain"
 CLANG_DIR="${TC_DIR}/clang-rastamod"
 GCC_64_DIR="${LOCAL_DIR}toolchain/aarch64-linux-android-4.9"
@@ -22,8 +22,8 @@ AK3_DIR="${LOCAL_DIR}/Dynamic/AnyKernel3"
 DEFCONFIG="vendor/ginkgo-perf_defconfig"
 
 export PATH="$CLANG_DIR/bin:$PATH"
-export KBUILD_BUILD_USER="EdwiinKJ"
-export KBUILD_BUILD_HOST="RastaMod69"
+export KBUILD_BUILD_USER="Munir"
+export KBUILD_BUILD_HOST="ShawkTeam"
 export LD_LIBRARY_PATH="$CLANG_DIR/lib:$LD_LIBRARY_PATH"
 export KBUILD_BUILD_VERSION="1"
 export LOCALVERSION
@@ -66,7 +66,7 @@ echo -e "\nKSU Support, let's Make it On\n"
 curl -kLSs "https://raw.githubusercontent.com/kutemeikito/KernelSU-Next/next/kernel/setup.sh" | bash -s next
 git apply KernelSU-hook.patch
 sed -i 's/CONFIG_KSU=n/CONFIG_KSU=y/g' arch/arm64/configs/vendor/ginkgo-perf_defconfig
-sed -i 's/CONFIG_LOCALVERSION="-RyzenKernel-Dynamic/erofs"/CONFIG_LOCALVERSION="-RyzenKernel-Dynamic/erofs-KSU"/g' arch/arm64/configs/vendor/ginkgo-perf_defconfig
+sed -i 's/CONFIG_LOCALVERSION="-EklerKernel"/CONFIG_LOCALVERSION="-EklerKernel-KSU"/g' arch/arm64/configs/vendor/ginkgo-perf_defconfig
 else
 echo -e "\nKSU not Support, let's Skip\n"
 fi
@@ -96,7 +96,7 @@ echo -e "\nKernel compiled succesfully! Zipping up...\n"
 git restore arch/arm64/configs/vendor/ginkgo-perf_defconfig
 if [ -d "$AK3_DIR" ]; then
 cp -r $AK3_DIR AnyKernel3
-elif ! git clone -q -b dynamic https://github.com/kutemeikito/AnyKernel3; then
+elif ! git clone -q -b dynamic https://github.com/mnasibzade/AnyKernel3; then
 echo -e "\nAnyKernel3 repo not found locally and cloning failed! Aborting..."
 exit 1
 fi
