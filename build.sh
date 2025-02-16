@@ -114,13 +114,11 @@ cd ..
 rm -rf AnyKernel3
 rm -rf out/arch/arm64/boot
 echo -e "======================================="
-echo -e "░█▀▀█ █──█ ▀▀█ █▀▀ █▀▀▄ "
-echo -e "░█▄▄▀ █▄▄█ ▄▀─ █▀▀ █──█ "
-echo -e "░█─░█ ▄▄▄█ ▀▀▀ ▀▀▀ ▀──▀ "
-echo -e " "
-echo -e "░█─▄▀ █▀▀ █▀▀█ █▀▀▄ █▀▀ █── "
-echo -e "░█▀▄─ █▀▀ █▄▄▀ █──█ █▀▀ █── "
-echo -e "░█─░█ ▀▀▀ ▀─▀▀ ▀──▀ ▀▀▀ ▀▀▀ "
+echo -e "EEEE  K   K  L        EEEE  RRRR "
+echo -e "E     K  K   L        E     R   R"
+echo -e "EEEE  KKK    L        EEEE  RRRR"  
+echo -e "E     K  K   L        E     R  R"
+echo -e "EEEE  K   K  LLLLL    EEEE  R   R" 
 echo -e "======================================="
 echo -e "Completed in $((SECONDS / 60)) minute(s) and $((SECONDS % 60)) second(s) !"
 if [[ $1 = "-k" || $1 = "--ksu" ]]; then
